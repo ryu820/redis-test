@@ -19,16 +19,16 @@
 ```
 docker pull redis
 ```
-- redis 실행시키기 
-    - redis-server --appendonly yes --requirepass [password]  
-      --appendonly yes : 지속적인 데이터 저장을 활성화  
-      --requirepass [password] : cli로 접속 시 비밀번호 지정 (redis.conf 파일로 더 많은 설정 가능)  
-        
+- redis 실행시키기
+
 ```
 docker run -v /path/on/host:/data --name my-redis -p 6379:6379 redis redis-server --appendonly yes --requirepass [password]
 
 //로컬에서 올릴 때 볼륨 설정 안해줬는데 나중에 배포환경에서는 해줘야 할듯
 docker run --name my-redis -p 6379:6379 redis redis-server --appendonly yes --requirepass [password] 
 ```
+- redis-server --appendonly yes --requirepass [password]  
+--appendonly yes : 지속적인 데이터 저장을 활성화  
+--requirepass [password] : cli로 접속 시 비밀번호 지정 (redis.conf 파일로 더 많은 설정 가능)    
 
 -> docker exec 로 접속 후 redis-cli 를 통해 redis 연결 확인 가능!
